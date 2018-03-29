@@ -41,6 +41,7 @@
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\JCHTML5</extension>
+    <extension index="1">extensions\[HTML5] External JavaScript</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -64,6 +65,7 @@
       <script>scripts\jc_draw_text.gml</script>
       <script>scripts\jc_device_is_touch.gml</script>
       <script>scripts\jc_device_is_browser.gml</script>
+      <script>scripts\jc_set_dpi.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

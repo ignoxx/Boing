@@ -28,12 +28,14 @@
             <string>///Configuration - Edit me
 
 // Screen scale setting for desktop and mobile
-if (global.DEVICE_IS_TOUCH) screen_scale_type = SCREEN_FILL; //FIT or FILL (recommended for mobile)
-                       else screen_scale_type = SCREEN_FIX;  //FIX or FULL (recommended for desktop)
+if (global.DEVICE_IS_TOUCH) 
+    screen_scale_type = SCREEN_FIX; //FIT or FILL (recommended for mobile)
+else 
+    screen_scale_type = SCREEN_FIX;  //FIX or FULL (recommended for desktop)
 
 // On Chrome for Android, the user can only hide the URL bar by scrolling slightly. 
 // There needs to be some non-canvas area visible so the user can do this.
-leave_room_for_scrolling = YES;
+leave_room_for_scrolling = NO;
                        
 // Allow both orientations
 allow_both_orientations = NO;
