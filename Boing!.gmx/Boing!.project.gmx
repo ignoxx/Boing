@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="28" name="datafiles">
+  <datafiles number="33" name="datafiles">
     <datafile>
       <name>index_template.html</name>
       <exists>-1</exists>
@@ -42,6 +42,7 @@
   <NewExtensions>
     <extension index="0">extensions\JCHTML5</extension>
     <extension index="1">extensions\[HTML5] External JavaScript</extension>
+    <extension index="2">extensions\TweenGMS</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -61,23 +62,253 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="TweenGMS">
+      <scripts name="Tweening">
+        <scripts name="Tween Fire">
+          <script>scripts\TweenFire.gml</script>
+          <script>scripts\TweenFireTo.gml</script>
+          <script>scripts\TweenFireFrom.gml</script>
+          <script>scripts\TGMS_TweenFire.gml</script>
+        </scripts>
+        <scripts name="Tween Create">
+          <script>scripts\TweenCreate.gml</script>
+          <script>scripts\TGMS_TweenCreate.gml</script>
+        </scripts>
+        <scripts name="Tween Play">
+          <script>scripts\TweenPlay.gml</script>
+          <script>scripts\TweenPlayDelay.gml</script>
+          <script>scripts\TGMS_TweenPlay.gml</script>
+        </scripts>
+        <scripts name="Tween Selection">
+          <script>scripts\Tweens.gml</script>
+          <script>scripts\TweensAll.gml</script>
+          <script>scripts\TweensGroup.gml</script>
+          <script>scripts\TweensTarget.gml</script>
+          <script>scripts\TweensIncludeDeactivated.gml</script>
+        </scripts>
+        <scripts name="Tween Control">
+          <script>scripts\TweenStop.gml</script>
+          <script>scripts\TweenPause.gml</script>
+          <script>scripts\TweenResume.gml</script>
+          <script>scripts\TweenReverse.gml</script>
+          <script>scripts\TweenFinish.gml</script>
+          <script>scripts\TweenFinishDelay.gml</script>
+        </scripts>
+        <scripts name="Tween State">
+          <script>scripts\TweenGet.gml</script>
+          <script>scripts\TweenSet.gml</script>
+          <script>scripts\TweenExists.gml</script>
+          <script>scripts\TweenIsActive.gml</script>
+          <script>scripts\TweenIsPlaying.gml</script>
+          <script>scripts\TweenIsPaused.gml</script>
+          <script>scripts\TweenIsStopped.gml</script>
+        </scripts>
+        <scripts name="Tween Destroy">
+          <script>scripts\TweenDestroy.gml</script>
+          <script>scripts\TweenDestroySafe.gml</script>
+          <script>scripts\TweenDestroyWhenDone.gml</script>
+        </scripts>
+        <scripts name="Tween Events">
+          <scripts name="Tween Callbacks">
+            <script>scripts\TweenAddCallback.gml</script>
+            <script>scripts\TweenAddCallbackUser.gml</script>
+            <script>scripts\TweenCallbackNull.gml</script>
+            <script>scripts\TweenCallbackIsValid.gml</script>
+            <script>scripts\TweenCallbackInvalidate.gml</script>
+            <script>scripts\TweenCallbackEnable.gml</script>
+            <script>scripts\TweenCallbackIsEnabled.gml</script>
+          </scripts>
+          <script>scripts\TweenEventClear.gml</script>
+          <script>scripts\TweenEventEnable.gml</script>
+          <script>scripts\TweenEventIsEnabled.gml</script>
+        </scripts>
+        <scripts name="Tween Tools">
+          <script>scripts\Ease.gml</script>
+          <script>scripts\TweenStep.gml</script>
+          <script>scripts\TweenCalc.gml</script>
+          <script>scripts\TweenCalcTime.gml</script>
+          <script>scripts\TweenCalcAmount.gml</script>
+        </scripts>
+        <scripts name="Tween Path">
+          <script>scripts\TweenPath.gml</script>
+          <script>scripts\ext_path__.gml</script>
+        </scripts>
+        <scripts name="Special Handles">
+          <script>scripts\TweenNull.gml</script>
+          <script>scripts\TweenDefault.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="Easy Tweens">
+        <script>scripts\TweenEasyMove.gml</script>
+        <script>scripts\TweenEasyScale.gml</script>
+        <script>scripts\TweenEasyRotate.gml</script>
+        <script>scripts\TweenEasyTurn.gml</script>
+        <script>scripts\TweenEasyFade.gml</script>
+        <script>scripts\TweenEasyBlend.gml</script>
+        <script>scripts\TweenEasyImage.gml</script>
+        <script>scripts\TweenEasySpeed.gml</script>
+        <script>scripts\TweenEasySpeedHV.gml</script>
+        <script>scripts\TweenEasyUseDelta.gml</script>
+      </scripts>
+      <scripts name="Ease Algorithms">
+        <script>scripts\EaseLinear.gml</script>
+        <script>scripts\EaseInQuad.gml</script>
+        <script>scripts\EaseOutQuad.gml</script>
+        <script>scripts\EaseInOutQuad.gml</script>
+        <script>scripts\EaseInCubic.gml</script>
+        <script>scripts\EaseOutCubic.gml</script>
+        <script>scripts\EaseInOutCubic.gml</script>
+        <script>scripts\EaseInQuart.gml</script>
+        <script>scripts\EaseOutQuart.gml</script>
+        <script>scripts\EaseInOutQuart.gml</script>
+        <script>scripts\EaseInQuint.gml</script>
+        <script>scripts\EaseOutQuint.gml</script>
+        <script>scripts\EaseInOutQuint.gml</script>
+        <script>scripts\EaseInSine.gml</script>
+        <script>scripts\EaseOutSine.gml</script>
+        <script>scripts\EaseInOutSine.gml</script>
+        <script>scripts\EaseInCirc.gml</script>
+        <script>scripts\EaseOutCirc.gml</script>
+        <script>scripts\EaseInOutCirc.gml</script>
+        <script>scripts\EaseInExpo.gml</script>
+        <script>scripts\EaseOutExpo.gml</script>
+        <script>scripts\EaseInOutExpo.gml</script>
+        <script>scripts\EaseInElastic.gml</script>
+        <script>scripts\EaseOutElastic.gml</script>
+        <script>scripts\EaseInOutElastic.gml</script>
+        <script>scripts\EaseInBack.gml</script>
+        <script>scripts\EaseOutBack.gml</script>
+        <script>scripts\EaseInOutBack.gml</script>
+        <script>scripts\EaseInBounce.gml</script>
+        <script>scripts\EaseOutBounce.gml</script>
+        <script>scripts\EaseInOutBounce.gml</script>
+      </scripts>
+      <scripts name="Enhanced Properties">
+        <scripts name="Property Builders">
+          <script>scripts\TGMS_BuildProperty.gml</script>
+          <script>scripts\TGMS_BuildPropertyNormalize.gml</script>
+        </scripts>
+        <scripts name="Default Properties">
+          <script>scripts\TGMS_BuildDefaultProperties.gml</script>
+          <scripts name="Auto">
+            <script>scripts\TGMS_Variable_Instance_Get.gml</script>
+            <script>scripts\TGMS_Variable_Instance_Set.gml</script>
+            <script>scripts\TGMS_Variable_Global_Get.gml</script>
+            <script>scripts\TGMS_Variable_Global_Set.gml</script>
+          </scripts>
+          <scripts name="Global">
+            <script>scripts\score__.gml</script>
+            <script>scripts\__score.gml</script>
+            <script>scripts\health__.gml</script>
+            <script>scripts\__health.gml</script>
+            <script>scripts\background_colour__.gml</script>
+            <script>scripts\__background_colour.gml</script>
+          </scripts>
+          <scripts name="Instance">
+            <script>scripts\x__.gml</script>
+            <script>scripts\__x.gml</script>
+            <script>scripts\y__.gml</script>
+            <script>scripts\__y.gml</script>
+            <script>scripts\roundx__.gml</script>
+            <script>scripts\roundy__.gml</script>
+            <script>scripts\speed__.gml</script>
+            <script>scripts\__speed.gml</script>
+            <script>scripts\hspeed__.gml</script>
+            <script>scripts\__hspeed.gml</script>
+            <script>scripts\vspeed__.gml</script>
+            <script>scripts\__vspeed.gml</script>
+            <script>scripts\direction__.gml</script>
+            <script>scripts\__direction.gml</script>
+            <script>scripts\image_speed__.gml</script>
+            <script>scripts\image_index__.gml</script>
+            <script>scripts\image_alpha__.gml</script>
+            <script>scripts\__image_alpha.gml</script>
+            <script>scripts\image_angle__.gml</script>
+            <script>scripts\__image_angle.gml</script>
+            <script>scripts\image_scale__.gml</script>
+            <script>scripts\image_xscale__.gml</script>
+            <script>scripts\__image_xscale.gml</script>
+            <script>scripts\image_yscale__.gml</script>
+            <script>scripts\__image_yscale.gml</script>
+            <script>scripts\image_blend__.gml</script>
+            <script>scripts\__image_blend.gml</script>
+            <script>scripts\path_position__.gml</script>
+            <script>scripts\path_scale__.gml</script>
+            <script>scripts\path_speed__.gml</script>
+            <script>scripts\path_orientation__.gml</script>
+          </scripts>
+          <scripts name="User Events">
+            <script>scripts\TPUser.gml</script>
+            <script>scripts\ext_PropUser__.gml</script>
+            <script>scripts\__ext_PropUser.gml</script>
+          </scripts>
+          <scripts name="Data Structures">
+            <script>scripts\TPArray.gml</script>
+            <script>scripts\TPList.gml</script>
+            <script>scripts\TPGrid.gml</script>
+            <script>scripts\TPMap.gml</script>
+            <script>scripts\ext_Array1D__.gml</script>
+            <script>scripts\__ext_Array1D.gml</script>
+            <script>scripts\ext_Array2D__.gml</script>
+            <script>scripts\__ext_Array2D.gml</script>
+            <script>scripts\ext_DSList__.gml</script>
+            <script>scripts\__ext_DSList.gml</script>
+            <script>scripts\ext_DSGrid__.gml</script>
+            <script>scripts\__ext_DSGrid.gml</script>
+            <script>scripts\ext_DSMap__.gml</script>
+            <script>scripts\__ext_DSMap.gml</script>
+          </scripts>
+          <scripts name="Other">
+            <script>scripts\TPNull.gml</script>
+            <script>scripts\TPExt.gml</script>
+          </scripts>
+        </scripts>
+      </scripts>
+      <scripts name="System Utilities">
+        <script>scripts\TweenSystemGet.gml</script>
+        <script>scripts\TweenSystemSet.gml</script>
+        <script>scripts\TweenSystemCount.gml</script>
+        <script>scripts\TweenSystemClearRoom.gml</script>
+        <script>scripts\TweenSystemFlushDestroyed.gml</script>
+        <script>scripts\SharedTweenerActivate.gml</script>
+        <script>scripts\SharedTweenerDestroy.gml</script>
+      </scripts>
+      <scripts name="Support (DO NOT TOUCH)">
+        <script>scripts\TGMS_Init.gml</script>
+        <script>scripts\TGMS_Final.gml</script>
+        <script>scripts\TGMS_ExecuteEvent.gml</script>
+        <script>scripts\TGMS_TweensExecute.gml</script>
+        <script>scripts\TGMS_ClearRoom.gml</script>
+        <script>scripts\TGMS_FetchTween.gml</script>
+        <script>scripts\TGMS_TargetExists.gml</script>
+        <script>scripts\TGMS_EventUser.gml</script>
+        <script>scripts\TGMS_NULL__.gml</script>
+        <script>scripts\TGMS_MultiPropertySetter__.gml</script>
+        <script>scripts\TweenForcePropertyUpdate.gml</script>
+        <script>scripts\SharedTweener.gml</script>
+      </scripts>
+    </scripts>
     <scripts name="JCHTML5">
       <script>scripts\jc_draw_text.gml</script>
       <script>scripts\jc_device_is_touch.gml</script>
       <script>scripts\jc_device_is_browser.gml</script>
       <script>scripts\jc_set_dpi.gml</script>
     </scripts>
+    <script>scripts\draw_rectangle_width.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_jchtml5</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_jchtml5_welcome</object>
+    <objects name="TweenGMS">
+      <object>objects\obj_SharedTweener</object>
+    </objects>
     <objects name="JCHTML5">
       <object>objects\ctr_init</object>
       <object>objects\ctr_screen</object>
       <object>objects\ctr_splash</object>
     </objects>
+    <object>objects\oField</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
