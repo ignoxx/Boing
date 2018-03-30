@@ -12,8 +12,8 @@
   <showcolour>-1</showcolour>
   <code></code>
   <enableViews>0</enableViews>
-  <clearViewBackground>0</clearViewBackground>
-  <clearDisplayBuffer>-1</clearDisplayBuffer>
+  <clearViewBackground>-1</clearViewBackground>
+  <clearDisplayBuffer>0</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
     <w>1016</w>
@@ -52,6 +52,7 @@
   </views>
   <instances>
     <instance objName="oField" x="320" y="448" name="inst_3F622123" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBall" x="416" y="224" name="inst_390AD66D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
