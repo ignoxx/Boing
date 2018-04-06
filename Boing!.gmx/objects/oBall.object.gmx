@@ -25,29 +25,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Create sprite
-ballWidth = 10;
+            <string>ballWidth = 16;
+collided = false;
 
-draw_set_circle_precision(64);
+//Create sprite
 var s = surface_create(ballWidth*2, ballWidth*2);
 surface_set_target(s);
+    draw_set_circle_precision(64);
     draw_circle_colour(ballWidth, ballWidth, ballWidth, c_white, c_white, false);
 surface_reset_target();
 
 //Apply sprite and mask
 sprite_index = sprite_create_from_surface(s, 0, 0, ballWidth*2, ballWidth*2, false, false, ballWidth, ballWidth);
-mask_index = sprite_index;
+sprite_collision_mask(sprite_index, false, 0, 0 ,0, ballWidth, ballWidth, 1, 0);
 
-speed = 2;
-direction = random(360);
-
-
+vspeed = 1 + irandom(5);
+hspeed = 1 + irandom(5);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="oField">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -64,7 +63,62 @@ direction = random(360);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.direction = -other.direction;
+            <string>collided = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//#region Collision: oField
+    var _collided_h = false;
+    var _collided_v = false;
+    var _field_collision_h;
+    var _field_collision_v;
+    var i = 0;
+    
+    while(i &lt; 5){
+        _field_collision_h = instance_place(floor(x) + round(hspeed), floor(y), oField);
+        _field_collision_v = instance_place(floor(x), floor(y) + round(vspeed), oField);
+        
+        if(!collided) {
+            if(_field_collision_h != noone &amp;&amp; !_collided_h){
+                direction = -direction + 180;
+                _collided_h = true;
+            }
+            
+            if(_field_collision_v != noone &amp;&amp; !_collided_v){
+                direction = -direction;
+                _collided_v = true;
+            }
+        } 
+        else {
+            break;    
+        }
+        i++;
+        
+        collided = _collided_h || _collided_v;
+        if(collided) alarm[0] = 5;
+    }
+    
+    
+//#endregion
 </string>
           </argument>
         </arguments>

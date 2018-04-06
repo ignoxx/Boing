@@ -25,23 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Create sprite
-fxaa = false;
-fieldWidth      = 1000;
-fieldThickness  = 25;
+            <string>fieldWidth      = floor(window_get_width() * 0.65) ;
+fieldThickness  = 20;
+
+//Create sprite
 var s = surface_create(fieldWidth, fieldWidth);
 surface_set_target(s);
     draw_rectangle_width(0, 0, fieldWidth, fieldWidth, fieldThickness, c_white, true);
 surface_reset_target();
 
 //Apply sprite and mask
-sprite_index = sprite5;//sprite_create_from_surface(s, 0, 0, fieldWidth, fieldWidth, false, false, fieldWidth/2, fieldWidth/2);
-mask_index = sprite_index;
+sprite_index = sprite_create_from_surface(s, 0, 0, fieldWidth, fieldWidth, false, false, fieldWidth/2, fieldWidth/2);
+sprite_collision_mask(sprite_index, false, 0, 0 ,0, 0, 0, 0, 0);
 
 x = room_width/2;
 y = room_height/2;
-//image_xscale = 200/1000;
-//image_yscale = 200/1000;
+
 
 //TweenFire(id, EaseInQuad, TWEEN_MODE_PATROL, true, 2, 5, image_angle__, 0, 360);
 </string>
@@ -90,38 +89,7 @@ y = room_height/2;
           <argument>
             <kind>1</kind>
             <string>image_angle = point_direction(x, y, mouse_x, mouse_y);
-if(fxaa){
-    shader_set(sha_fxaa);
-    var tex = sprite_get_texture(sprite_index, image_index); // REPLACE THIS WITH THE SPRITE YOU WANT TO DRAW
-    shader_set_uniform_f(shader_get_uniform(sha_fxaa, "u_texel"), texture_get_texel_width(tex), texture_get_texel_height(tex));
-    shader_set_uniform_f(shader_get_uniform(sha_fxaa, "u_strength"), 4);
-    draw_self(); // REPLACE THIS WITH THE SPRITE YOU WANT TO DRAW
-    shader_reset();
-}
-else {draw_self();}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>fxaa = !fxaa;
+draw_self();
 </string>
           </argument>
         </arguments>

@@ -272,7 +272,7 @@
     <option_html5_google_tracking_id></option_html5_google_tracking_id>
     <option_html5_icon>Configs\Default\html5\fav.ico</option_html5_icon>
     <option_html5_index>0</option_html5_index>
-    <option_html5_interpolate>0</option_html5_interpolate>
+    <option_html5_interpolate>-1</option_html5_interpolate>
     <option_html5_jsprepend></option_html5_jsprepend>
     <option_html5_loadingbar>0</option_html5_loadingbar>
     <option_html5_localrunalert>True</option_html5_localrunalert>

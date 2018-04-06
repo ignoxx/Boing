@@ -1,0 +1,56 @@
+// 2018-04-06 22:29:10
+#event create
+ballWidth = 16;
+collided = false;
+
+//Create sprite
+var s = surface_create(ballWidth*2, ballWidth*2);
+surface_set_target(s);
+    draw_set_circle_precision(64);
+    draw_circle_colour(ballWidth, ballWidth, ballWidth, c_white, c_white, false);
+surface_reset_target();
+
+//Apply sprite and mask
+sprite_index = sprite_create_from_surface(s, 0, 0, ballWidth*2, ballWidth*2, false, false, ballWidth, ballWidth);
+sprite_collision_mask(sprite_index, false, 0, 0 ,0, ballWidth, ballWidth, 1, 0);
+
+vspeed = 1 + irandom(5);
+hspeed = 1 + irandom(5);
+
+#event alarm0
+collided = false;
+
+#event step_end
+//#region Collision: oField
+    var _collided_h = false;
+    var _collided_v = false;
+    var _field_collision_h;
+    var _field_collision_v;
+    var i = 0;
+    
+    while(i < 5){
+        _field_collision_h = instance_place(floor(x) + round(hspeed), floor(y), oField);
+        _field_collision_v = instance_place(floor(x), floor(y) + round(vspeed), oField);
+        
+        if(!collided) {
+            if(_field_collision_h != noone && !_collided_h){
+                direction = -direction + 180;
+                _collided_h = true;
+            }
+            
+            if(_field_collision_v != noone && !_collided_v){
+                direction = -direction;
+                _collided_v = true;
+            }
+        } 
+        else {
+            break;    
+        }
+        i++;
+        
+        collided = _collided_h || _collided_v;
+        if(collided) alarm[0] = 5;
+    }
+    
+    
+//#endregion

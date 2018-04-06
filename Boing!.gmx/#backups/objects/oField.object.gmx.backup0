@@ -1,0 +1,27 @@
+// 2018-04-06 22:32:42
+#event create
+fieldWidth      = floor(window_get_width() * 0.65) ;
+fieldThickness  = 20;
+
+//Create sprite
+var s = surface_create(fieldWidth, fieldWidth);
+surface_set_target(s);
+    draw_rectangle_width(0, 0, fieldWidth, fieldWidth, fieldThickness, c_white, true);
+surface_reset_target();
+
+//Apply sprite and mask
+sprite_index = sprite_create_from_surface(s, 0, 0, fieldWidth, fieldWidth, false, false, fieldWidth/2, fieldWidth/2);
+sprite_collision_mask(sprite_index, false, 0, 0 ,0, 0, 0, 0, 0);
+
+x = room_width/2;
+y = room_height/2;
+
+
+//TweenFire(id, EaseInQuad, TWEEN_MODE_PATROL, true, 2, 5, image_angle__, 0, 360);
+
+#event mouse_global_left_button
+instance_create(mouse_x, mouse_y, oBall);
+
+#event draw
+image_angle = point_direction(x, y, mouse_x, mouse_y);
+draw_self();
