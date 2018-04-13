@@ -1,0 +1,20 @@
+// 2018-04-13 15:08:01
+#event create
+center_x = room_width / 2;
+center_y = room_height / 2;
+
+center_dist = 200 - 16; //16 bcz of offset
+
+instance_create(center_x, center_y - center_dist, oFieldHorizontal);
+//instance_create(center_x, center_y + center_dist, oFieldHorizontal);
+
+//instance_create(center_x + center_dist, center_y, oFieldVertical);
+//instance_create(center_x - center_dist, center_y, oFieldVertical);
+
+#event mouse_global_left_button
+var angle = point_direction(center_x, center_y, mouse_x, mouse_y);
+with(pField){
+    //phy_rotation = -angle;
+    phy_position_x = other.center_x + round( lengthdir_x(other.center_dist, phy_rotation) );
+    phy_position_y = other.center_y + round( lengthdir_y(other.center_dist, phy_rotation) );
+}

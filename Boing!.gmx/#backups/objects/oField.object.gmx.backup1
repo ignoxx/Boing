@@ -1,4 +1,4 @@
-// 2018-04-06 22:31:51
+// 2018-04-06 22:32:42
 #event create
 fieldWidth      = floor(window_get_width() * 0.65) ;
 fieldThickness  = 20;

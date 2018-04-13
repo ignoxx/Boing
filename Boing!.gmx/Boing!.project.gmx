@@ -53,6 +53,9 @@
       <sprite>sprites\spr_jchtml5_welcome</sprite>
       <sprite>sprites\spr_html5_blurry</sprite>
     </sprites>
+    <sprite>sprites\sprBall</sprite>
+    <sprite>sprites\sprFieldHorizontal</sprite>
+    <sprite>sprites\sprFieldVertical</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="JCHTML5">
@@ -300,8 +303,13 @@
     <font>fonts\fnt_jchtml5</font>
   </fonts>
   <objects name="objects">
-    <object>objects\oField</object>
+    <object>objects\oGameController</object>
     <object>objects\oBall</object>
+    <objects name="Field">
+      <object>objects\pField</object>
+      <object>objects\oFieldVertical</object>
+      <object>objects\oFieldHorizontal</object>
+    </objects>
     <objects name="TweenGMS">
       <object>objects\obj_SharedTweener</object>
     </objects>
@@ -310,6 +318,7 @@
       <object>objects\ctr_screen</object>
       <object>objects\ctr_splash</object>
     </objects>
+    <object>objects\oFieldOLD</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
