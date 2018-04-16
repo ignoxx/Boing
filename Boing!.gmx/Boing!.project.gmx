@@ -298,6 +298,7 @@
       <script>scripts\jc_set_dpi.gml</script>
     </scripts>
     <script>scripts\draw_rectangle_width.gml</script>
+    <script>scripts\scr_handle_input.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_jchtml5</font>

@@ -30,22 +30,23 @@ center_y = room_height / 2;
 
 center_dist = 200 - 16; //16 bcz of offset
 
-last_mouse_x = 0;
-last_mouse_y = 0;
-last_angle = 90;
+field_angle = 90;
+
+
+
 
 
 with(instance_create(center_x, center_y - center_dist, oFieldHorizontal)){type = 0;}
-//with(instance_create(center_x, center_y + center_dist, oFieldHorizontal)){type = 1;}
+with(instance_create(center_x, center_y + center_dist, oFieldHorizontal)){type = 1;}
 
-//with(instance_create(center_x + center_dist, center_y, oFieldVertical)){type = 2;}
-//with(instance_create(center_x - center_dist, center_y, oFieldVertical)){type = 3;}
+with(instance_create(center_x + center_dist, center_y, oFieldVertical)){type = 2;}
+with(instance_create(center_x - center_dist, center_y, oFieldVertical)){type = 3;}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="56">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -62,70 +63,7 @@ with(instance_create(center_x, center_y - center_dist, oFieldHorizontal)){type =
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>last_angle = point_direction(center_x, center_y, mouse_x, mouse_y);
-last_mouse_x = mouse_x;
-last_mouse_y = mouse_y;
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="50">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var angle     = point_direction(center_x, center_y, mouse_x, mouse_y);
-var angle_dif = (angle - point_direction(center_x, center_y, last_mouse_x, last_mouse_y));
-angle = angle + angle_dif;
-
-with(pField){
-    switch(type){
-        case 0:
-            phy_rotation =  -(angle + 90);
-            phy_position_x = other.center_x + round( lengthdir_x(other.center_dist, angle) );
-            phy_position_y = other.center_y + round( lengthdir_y(other.center_dist, angle) );
-            break;
-            
-        case 1:
-            phy_rotation = -(angle + 90);
-            phy_position_x = other.center_x - round( lengthdir_x(other.center_dist, angle) );
-            phy_position_y = other.center_y - round( lengthdir_y(other.center_dist, angle) );
-            break;
-        
-        case 2:
-            phy_rotation = -(angle + 90);
-            phy_position_x = other.center_x - round( lengthdir_x(other.center_dist, angle + 90) );
-            phy_position_y = other.center_y - round( lengthdir_y(other.center_dist, angle + 90) );
-            break;
-        
-        case 3:
-            phy_rotation = -(angle + 90);
-            phy_position_x = other.center_x + round( lengthdir_x(other.center_dist, angle + 90) );
-            phy_position_y = other.center_y + round( lengthdir_y(other.center_dist, angle + 90) );
-            break;
-    }
-}
-
-// angle = 120
-// last_angle = 90
-// angle_dif = 120-90 = 30
-
-
+            <string>scr_handle_input();
 </string>
           </argument>
         </arguments>
@@ -151,8 +89,7 @@ with(pField){
             <string>draw_set_color(c_white);
 draw_set_font(fnt_jchtml5);
 jc_draw_text(5, 10, "Mouse("+string(mouse_x)+"/"+string(mouse_y)+")", 1, 0);
-jc_draw_text(5, 10, "#LastMouse("+string(last_mouse_x)+"/"+string(last_mouse_y)+")", 1, 0);
-jc_draw_text(5, 10, "##LastAngle("+string(last_angle)+")", 1, 0);
+
 </string>
           </argument>
         </arguments>
