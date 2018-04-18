@@ -35,6 +35,8 @@ with(pField){
             phy_rotation =  -(angle + 90);
             phy_position_x = other.center_x + round( lengthdir_x(other.center_dist, angle) );
             phy_position_y = other.center_y + round( lengthdir_y(other.center_dist, angle) );
+            
+            physics_world_gravity(lengthdir_x(10, angle), lengthdir_y(10, angle));
             break;
             
         case 1:
@@ -56,3 +58,6 @@ with(pField){
             break;
     }
 }
+
+//change room gravity
+

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///
+            <string>/// init borders
+image_speed = 0;
 phy_rotation = 90;
 </string>
           </argument>

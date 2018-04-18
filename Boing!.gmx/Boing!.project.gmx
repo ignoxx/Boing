@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="33" name="datafiles">
+  <datafiles number="34" name="datafiles">
     <datafile>
       <name>index_template.html</name>
       <exists>-1</exists>
@@ -38,6 +38,23 @@
       </ConfigOptions>
       <filename>loading_image.png</filename>
     </datafile>
+    <datafile>
+      <name>Instructions.pdf</name>
+      <exists>-1</exists>
+      <size>73010</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Instructions.pdf</filename>
+    </datafile>
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\JCHTML5</extension>
@@ -56,6 +73,7 @@
     <sprite>sprites\sprBall</sprite>
     <sprite>sprites\sprFieldHorizontal</sprite>
     <sprite>sprites\sprFieldVertical</sprite>
+    <sprite>sprites\spr_zigzag</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="JCHTML5">
@@ -299,6 +317,11 @@
     </scripts>
     <script>scripts\draw_rectangle_width.gml</script>
     <script>scripts\scr_handle_input.gml</script>
+    <script>scripts\draw_trail.gml</script>
+    <script>scripts\trail_init.gml</script>
+    <script>scripts\draw_trail_ext.gml</script>
+    <script>scripts\trail_calculate.gml</script>
+    <script>scripts\trail_destroy.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_jchtml5</font>
@@ -324,6 +347,7 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <room>rooms\rm_main</room>
+    <room>rooms\room_example</room>
   </rooms>
   <constants number="2">
     <constant name="GM_build_date">41924.8401059028</constant>

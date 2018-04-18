@@ -25,30 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>center_x = room_width / 2;
-center_y = room_height / 2;
-
-center_dist = 200 - 16; //16 bcz of offset
-
-field_angle = 90;
-
-
-
-
-
-with(instance_create(center_x, center_y - center_dist, oFieldHorizontal)){type = 0; image_index = 1;}
-with(instance_create(center_x, center_y + center_dist, oFieldHorizontal)){type = 1; image_index = 0;}
-
-with(instance_create(center_x + center_dist, center_y, oFieldVertical)){type = 2; image_index = 0;}
-with(instance_create(center_x - center_dist, center_y, oFieldVertical)){type = 3; image_index = 0;}
-
-instance_create(center_x, center_y, oBall);
+            <string>///Setting the movement variables and the alarm to change them
+direction = random(360)
+speed = choose(4,8,12)
+alarm[0] = irandom(90)+60;
+slim = 0;
+color = 0;
+//Creating the grid of the trail effect
+trail_init();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -65,13 +55,16 @@ instance_create(center_x, center_y, oBall);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_handle_input();
+            <string>///Changing the movement variables and restarting the alarm
+direction = random(360);
+speed = choose(4,8,12);
+alarm[0] = irandom(90)+60;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -88,34 +81,59 @@ instance_create(center_x, center_y, oBall);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
-draw_set_font(fnt_jchtml5);
-jc_draw_text(5, 10, "FPS: "+string(fps), 1, 0);
-jc_draw_text(5, 10, "#Mouse("+string(mouse_x)+"/"+string(mouse_y)+")", 1, 0);
+            <string>trail_calculate(16);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Preventing the object to move outside the room
+if (x &lt; 0) || (x &gt; room_width) hspeed = -hspeed;
+if (y &lt; 0) || (y &gt; room_height) vspeed = -vspeed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Drawing the trail
+draw_trail_ext(16,color,spr_zigzag,slim,1);
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>instance_create(mouse_x, mouse_y, oBall);
+//also drawing a little circle as the body of the object
+draw_circle(x,y,8,0);
 </string>
           </argument>
         </arguments>
@@ -133,5 +151,8 @@ jc_draw_text(5, 10, "#Mouse("+string(mouse_x)+"/"+string(mouse_y)+")", 1, 0);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>8,13</point>
+    <point>36,36</point>
+  </PhysicsShapePoints>
 </object>
