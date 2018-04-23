@@ -25,27 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ballWidth = 16;
-collided_h = false;
-collided_v = false;
+            <string>///
 
-//Create sprite
-var s = surface_create(ballWidth*2, ballWidth*2);
-surface_set_target(s);
-    draw_set_circle_precision(64);
-    draw_circle_colour(ballWidth, ballWidth, ballWidth, c_white, c_white, false);
-surface_reset_target();
-
-//Apply sprite and mask
-//sprite_index = sprite_create_from_surface(s, 0, 0, ballWidth*2, ballWidth*2, false, false, ballWidth, ballWidth);
-sprite_collision_mask(sprite_index, false, 0, 0 ,0, ballWidth, ballWidth, 0, 0);
-
-//vspeed = 1 + irandom(5);
-//hspeed = 1 + irandom(5);
-
-//Creating the grid of the trail effect
-trailWidth = 32;
-trail_init();
 </string>
           </argument>
         </arguments>
@@ -74,30 +55,6 @@ trail_init();
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// trail_calculate(trailWidth);
-trail_calculate(trailWidth);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -115,47 +72,33 @@ trail_calculate(trailWidth);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//#region Collision: oField
-/*
-var col = collision_circle(x, y, ballWidth, oField, true, true);
-
-if(col != noone){
-    direction = -direction;
-}
-*/
-/*
-    var _collided_h = false;
-    var _collided_v = false;
-    var _field_collision_h;
-    var _field_collision_v;
-    var i = 0;
-    
-    while(i &lt; 5){
-        
-        _field_collision_h = instance_place(floor(x) + round(hspeed), floor(y), oField);
-        _field_collision_v = instance_place(floor(x), floor(y) + round(vspeed), oField);
-        
-        if(!collided) {
-            if(_field_collision_h != noone &amp;&amp; !_collided_h){
-                direction = -direction + 180;
-                _collided_h = true;
-            }
-            
-            if(_field_collision_v != noone &amp;&amp; !_collided_v){
-                direction = -direction;
-                _collided_v = true;
-            }
-        } 
-        else {
-            break;    
-        }
-        i++;
-    }
-    
-    collided = _collided_h || _collided_v;
-    if(collided) alarm[0] = 5;
-*/
-//#endregion
+            <string>phy_speed_x = clamp(phy_speed_x, -10, 10);
+phy_speed_y = clamp(phy_speed_y, -10, 10);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="oRect">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision
+view_xview[0] += choose(random(2), random(-2));
+view_yview[0] += choose(random(2), random(-2));
 </string>
           </argument>
         </arguments>
@@ -251,9 +194,6 @@ if(col != noone){
           <argument>
             <kind>1</kind>
             <string>draw_self();
-
-///Drawing the trail
-draw_trail_ext(trailWidth , c_white, -1, true, 1);
 </string>
           </argument>
         </arguments>
@@ -272,7 +212,7 @@ draw_trail_ext(trailWidth , c_white, -1, true, 1);
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>16,16</point>
-    <point>16,16</point>
+    <point>12,12</point>
+    <point>12,16</point>
   </PhysicsShapePoints>
 </object>

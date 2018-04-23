@@ -59,5 +59,8 @@ with(pField){
     }
 }
 
+with(oRect){
+    phy_rotation = -(angle + 90);
+}
 //change room gravity
 

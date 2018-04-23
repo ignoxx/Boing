@@ -73,7 +73,7 @@
     <sprite>sprites\sprBall</sprite>
     <sprite>sprites\sprFieldHorizontal</sprite>
     <sprite>sprites\sprFieldVertical</sprite>
-    <sprite>sprites\spr_zigzag</sprite>
+    <sprite>sprites\sprRect</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="JCHTML5">
@@ -343,6 +343,9 @@
       <object>objects\ctr_splash</object>
     </objects>
     <object>objects\oFieldOLD</object>
+    <objects name="Obstacles">
+      <object>objects\oRect</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

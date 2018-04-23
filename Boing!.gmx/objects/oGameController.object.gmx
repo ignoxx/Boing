@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>center_x = room_width / 2;
+            <string>randomize();
+center_x = room_width / 2;
 center_y = room_height / 2;
 
 center_dist = 200 - 16; //16 bcz of offset
@@ -90,8 +91,15 @@ instance_create(center_x, center_y, oBall);
             <kind>1</kind>
             <string>draw_set_color(c_white);
 draw_set_font(fnt_jchtml5);
+
+var i = instance_find(oBall, 0);
 jc_draw_text(5, 10, "FPS: "+string(fps), 1, 0);
 jc_draw_text(5, 10, "#Mouse("+string(mouse_x)+"/"+string(mouse_y)+")", 1, 0);
+
+if(instance_exists(i))
+    jc_draw_text(5, 10, "##Spd: "+string(i.phy_speed), 1, 0);
+    jc_draw_text(5, 10, "###Spd X: "+string(i.phy_speed_x), 1, 0);
+    jc_draw_text(5, 10, "####Spd Y: "+string(i.phy_speed_y), 1, 0);
 
 </string>
           </argument>
@@ -115,7 +123,7 @@ jc_draw_text(5, 10, "#Mouse("+string(mouse_x)+"/"+string(mouse_y)+")", 1, 0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(mouse_x, mouse_y, oBall);
+            <string>if(mouse_check_button(mb_right)) instance_create(mouse_x, mouse_y, oRect) else instance_create(mouse_x, mouse_y, oBall);
 </string>
           </argument>
         </arguments>
